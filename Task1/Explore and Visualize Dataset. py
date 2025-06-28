@@ -1,1 +1,37 @@
-print("PYTHON")
+#Import libraries
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+#Load Iris dataset using seaborn
+iris = sns.load_dataset("iris")
+iris.head()
+
+#Print dataset shape
+print("Dataset Shape:", iris.shape)
+
+#Print column names
+print("Column Names:", iris.columns.tolist())
+
+#Show dataset info
+iris.info()
+
+#Show statistical summary
+iris.describe()
+
+#Plot pairplot by species
+sns.pairplot(iris, hue="species", height=2.33)
+plt.suptitle("Pairplot of Iris Features", y=1.01)
+plt.show()
+
+#Plot histograms
+iris.hist(edgecolor='black', figsize=(10, 6))
+plt.suptitle("Histogram of Iris Features")
+plt.tight_layout()
+plt.show()
+
+#Plot boxplots
+plt.figure(figsize=(10, 8))
+sns.boxplot(data=iris)
+plt.title("Boxplot of Iris Features")
+plt.show()
